@@ -40,4 +40,29 @@ def auto_picture(n):
     cv2.destroyAllWindows()
     print ('快拍结束')
 
+
 auto_picture(100)
+
+
+'''
+#demo
+
+cap = cv2.VideoCapture(0)     #读取摄像头，0表示系统默认摄像头  
+  
+while (True):  
+    ret,photo=cap.read()      #读取图像  
+    cv2.imshow('TEST',photo)  #将图像传送至窗口  
+    key=cv2.waitKey(1)        #设置等待时间，若数字为0则图像定格  
+    
+    if key==ord(" "):         #按空格获取图像  
+        filename = "F:\%s.jpg" % time.strftime('%Y%m%d-%H%M%S',time.localtime())
+        #filename = time.strftime('%Y%m%d-%H%M%S') + ".jpg"  #以当前时间存储  
+        cv2.imwrite(filename,photo)                         #保存位置  
+        #cv.SaveImage(filename,img)
+        
+    if key==ord("q"):         #按“q”退出程序  
+        break  
+
+cap.release()
+cv2.destroyAllWindows()
+'''
